@@ -1,6 +1,6 @@
 /*
 ? Title: 'PostgreSql Project' 
-* Description: 'mern stack ecommerce poroject'
+* Description: 'pern stack tamplate'
 ! Author: 'Ashab Uddin'
 * contact: ''
 * Date: '2023-03-23'
