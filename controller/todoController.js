@@ -1,9 +1,9 @@
-const asyncMiddleware = require('../middlewares/asyncMiddleware');
-const ErrorHandler = require('../helpers/ErrorHander');
-const {get,show,create,update,deleteData} = require('../model/CommonModel');
+import  asyncMiddleware  from '../middlewares/asyncMiddleware.js';
+import ErrorHandler from '../helpers/ErrorHander.js';
+import {get,show,create,update,deleteData} from '../model/CommonModel.js';
 
 // get all users
-exports.indexTodo = asyncMiddleware(async(req,res,next) => {
+export const indexTodo = asyncMiddleware(async(req,res,next) => {
     const data = await get("todos");
     if(!data) return next(new ErrorHandler('No data founds!',404))
     res.status(200).json({data});
@@ -11,7 +11,7 @@ exports.indexTodo = asyncMiddleware(async(req,res,next) => {
 
 
 // get one users
-exports.showTodo = asyncMiddleware(async(req,res,next) => {
+export const showTodo = asyncMiddleware(async(req,res,next) => {
     const {id} = req.params;
     const data = await show("todos",id);
     if(!data) return next(new ErrorHandler('No data founds!',404))
@@ -20,7 +20,7 @@ exports.showTodo = asyncMiddleware(async(req,res,next) => {
 
 
 // create todo
-exports.createTodo = asyncMiddleware(async(req,res,next) => {
+export const createTodo = asyncMiddleware(async(req,res,next) => {
     // const data = {
 
     // }
@@ -29,7 +29,7 @@ exports.createTodo = asyncMiddleware(async(req,res,next) => {
     res.status(200).json(response);
 });
 
-exports.updateTodo = asyncMiddleware(async(req,res,next) => {
+export const updateTodo = asyncMiddleware(async(req,res,next) => {
     const {id} = req.params;
     const response = await update("todos",req.body,id);
     if(!response) return next(new ErrorHandler('No data founds!',404))
@@ -37,7 +37,7 @@ exports.updateTodo = asyncMiddleware(async(req,res,next) => {
 });
 
 // delete
-exports.deleteTodo = asyncMiddleware(async(req,res,next) => {
+export const deleteTodo = asyncMiddleware(async(req,res,next) => {
     const {id} = req.params;
     await deleteData("todos",id);
     res.status(200).json("data deleted successfully");

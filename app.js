@@ -1,7 +1,7 @@
-const express = require('express');
-const Error = require('./middlewares/error');
-const router = require('./routes/router');
-const cors = require('cors');
+import express from 'express';
+import Error from "./middlewares/error.js"
+import router from './routes/router.js';
+import cors from 'cors';
 
 const app = express();
 
@@ -17,4 +17,4 @@ app.get('/',(req,res)=>{
 app.use(router);
 app.use(Error);
 
-module.exports = app;
+export default app;

@@ -6,10 +6,12 @@
 * Date: '2023-03-23'
 */
 
+import {config} from "dotenv";
+import app from './app.js';
 
-require('dotenv').config();
 
 
+config();
 
 // unhandle cought error
 process.on('uncaughtException', (err) =>{
@@ -22,7 +24,6 @@ process.on('uncaughtException', (err) =>{
 
 
 // Module scufholding
-const app = require('./app');
 const port = process.env.PORT;
 
 
